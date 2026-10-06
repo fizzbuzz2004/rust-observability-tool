@@ -1,0 +1,12 @@
+[package]
+name = "my-observability-tool-ebpf"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+aya-ebpf = "0.1.0"
+my-observability-tool-common = { path = "../my-observability-tool-common" }
+
+[[bin]]
+name = "my-observability-tool"
+path = "src/main.rs"

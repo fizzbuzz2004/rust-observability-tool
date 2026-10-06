@@ -1,0 +1,1 @@
+/mnt/c/Users/iydex/Documents/rust-observability-tool/target/debug/my-observability-tool: /mnt/c/Users/iydex/Documents/rust-observability-tool/my-observability-tool/src/main.rs /mnt/c/Users/iydex/Documents/rust-observability-tool/my-observability-tool-common/src/lib.rs /mnt/c/Users/iydex/Documents/rust-observability-tool/target/bpfel-unknown-none/debug/my-observability-tool

@@ -1,0 +1,9 @@
+/mnt/c/Users/iydex/Documents/rust-observability-tool/target/bpfel-unknown-none/debug/build/aya-ebpf-bindings/9934e09f379253fa/out/aya_ebpf_bindings-9934e09f379253fa.d: /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/lib.rs /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/bindings.rs /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/helpers.rs
+
+/mnt/c/Users/iydex/Documents/rust-observability-tool/target/bpfel-unknown-none/debug/build/aya-ebpf-bindings/9934e09f379253fa/out/libaya_ebpf_bindings-9934e09f379253fa.rlib: /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/lib.rs /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/bindings.rs /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/helpers.rs
+
+/mnt/c/Users/iydex/Documents/rust-observability-tool/target/bpfel-unknown-none/debug/build/aya-ebpf-bindings/9934e09f379253fa/out/libaya_ebpf_bindings-9934e09f379253fa.rmeta: /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/lib.rs /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/bindings.rs /home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/helpers.rs
+
+/home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/lib.rs:
+/home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/bindings.rs:
+/home/iydex/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aya-ebpf-bindings-0.1.2/src/x86_64/helpers.rs:
