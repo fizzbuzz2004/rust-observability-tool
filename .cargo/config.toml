@@ -1,0 +1,2 @@
+[target.bpfel-unknown-none]
+rustflags = ["-C", "link-arg=-T", "-C", "link-arg=bpf.ld"]

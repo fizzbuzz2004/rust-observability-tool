@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "my-observability-tool",
+    "my-observability-tool-ebpf",
+    "my-observability-tool-common",
+]
+resolver = "2"
