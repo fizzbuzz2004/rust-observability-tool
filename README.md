@@ -10,6 +10,7 @@ command name to the userspace application through a perf-event array.
 - `my-observability-tool/` — Aya userspace loader and perf-event reader.
 - `my-observability-tool-common/` — event structure shared by both crates.
 - `build.sh` — builds the eBPF object first, then the userspace application.
+- `setup-ubuntu.sh` — installs build prerequisites on Ubuntu 24.04 x86-64.
 
 ## Requirements
 
@@ -33,31 +34,28 @@ isn't already in the shell's `PATH`.
 Create an Ubuntu 24.04.3 (64-bit) virtual machine in VirtualBox. Allocate at
 least 2 CPUs and 4 GB of memory, enable network access, and install Ubuntu.
 The program's kprobe is named `__x64_sys_execve`, so use an x86-64 Ubuntu
-guest. After installation, open a terminal in the guest and install the
-system tools:
+guest. After installation, open a terminal in the guest. You need Git and curl
+initially to clone the repository and run its setup script:
 
 ```sh
 sudo apt update
-sudo apt install -y build-essential curl git pkg-config libelf-dev zlib1g-dev
+sudo apt install -y git curl ca-certificates
 ```
 
-Install Rust with `rustup`, then add the nightly toolchain and the `rust-src`
-component used to build the eBPF program:
-
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source "$HOME/.cargo/env"
-rustup toolchain install nightly --component rust-src
-cargo install bpf-linker --locked
-```
-
-Clone the repository and build both crates from the workspace root:
+Clone the repository, install all project prerequisites with the setup script,
+then build both crates from the workspace root:
 
 ```sh
 git clone https://github.com/fizzbuzz2004/rust-observability-tool.git
 cd rust-observability-tool
+./setup-ubuntu.sh
 ./build.sh
 ```
+
+Run `setup-ubuntu.sh` as your normal user, without `sudo`; it invokes `sudo`
+only for apt packages. It verifies Ubuntu 24.04 and x86-64, installs the
+system build dependencies, installs Rust with `rustup` if needed, adds nightly
+with `rust-src`, and installs `bpf-linker` if it is missing.
 
 The debug executable is `target/debug/my-observability-tool`. Check that the
 guest is x86-64 and that the selected kernel symbol is visible, then run the
