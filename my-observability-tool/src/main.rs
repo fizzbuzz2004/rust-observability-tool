@@ -1,5 +1,5 @@
 use aya::maps::AsyncPerfEventArray;
-use aya::programs::TracePoint;
+use aya::programs::KProbe;
 use aya::util::online_cpus;
 use aya::{include_bytes_aligned, Bpf};
 use bytes::BytesMut;
@@ -20,10 +20,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "../../target/bpfel-unknown-none/release/my-observability-tool"
     ))?;
 
-    // 2. Tracepoint laden und im Kernel attachern
-    let program: &mut TracePoint = bpf.program_mut("sys_enter_execve").unwrap().try_into()?;
+    // 2. Kprobe laden und an den execve-Systemaufruf anhängen
+    let program: &mut KProbe = bpf.program_mut("execve").unwrap().try_into()?;
     program.load()?;
-    program.attach("syscalls", "sys_enter_execve")?;
+    program.attach("__x64_sys_execve", 0)?;
 
     println!(">>> eBPF Observability Tool gestartet! Überwache Prozess-Executions...");
 

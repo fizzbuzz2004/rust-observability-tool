@@ -3,25 +3,25 @@
 
 use aya_ebpf::{
     helpers::{bpf_get_current_comm, bpf_get_current_pid_tgid},
-    macros::{map, tracepoint},
+    macros::{kprobe, map},
     maps::PerfEventArray,
-    programs::TracePointContext,
+    programs::ProbeContext,
 };
 use my_observability_tool_common::ExecEvent;
 
 #[map]
 static EVENTS: PerfEventArray<ExecEvent> = PerfEventArray::new(0);
 
-#[tracepoint]
-pub fn sys_enter_execve(ctx: TracePointContext) -> u32 {
-    match try_sys_enter_execve(ctx) {
+#[kprobe]
+pub fn execve(ctx: ProbeContext) -> u32 {
+    match try_execve(ctx) {
         Ok(ret) => ret,
         Err(ret) => ret,
     }
 }
 
 #[inline(always)]
-fn try_sys_enter_execve(ctx: TracePointContext) -> Result<u32, u32> {
+fn try_execve(ctx: ProbeContext) -> Result<u32, u32> {
     let pid_tgid = bpf_get_current_pid_tgid();
     let pid = (pid_tgid >> 32) as u32;
 
